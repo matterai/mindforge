@@ -4,7 +4,12 @@ import url from "url";
 import { fileURLToPath } from "url";
 import isDev from "electron-is-dev";
 import electronUpdater from "electron-updater";
+import dotenv from "dotenv";
 const { autoUpdater } = electronUpdater;
+
+// Load environment variables
+dotenv.config();
+const APP_PORT = process.env.APP_PORT || "5000";
 
 // Define __dirname for ESM
 const __filename = fileURLToPath(import.meta.url);
@@ -42,7 +47,7 @@ const createWindow = () => {
 
   // Load the app
   const appURL = isDev
-    ? "http://localhost:5175" // Vite dev server URL
+    ? `http://localhost:${APP_PORT}` // Vite dev server URL with environment variable
     : url.format({
         pathname: path.join(__dirname, "../../index.html"),
         protocol: "file:",

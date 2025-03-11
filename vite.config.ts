@@ -1,6 +1,12 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
+import dotenv from "dotenv";
+
+// Load environment variables
+dotenv.config();
+
+const APP_PORT = parseInt(process.env.APP_PORT || "5000", 10);
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -24,6 +30,6 @@ export default defineConfig({
     },
   },
   server: {
-    port: 5175,
+    port: APP_PORT,
   },
 });
