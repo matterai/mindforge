@@ -29,4 +29,3 @@
 - Component files: one component per file, named with kebab-case
 - Use ESLint and Prettier with `.prettierrc` settings for formatting
 - Run `prettier` to format the code
-

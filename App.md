@@ -65,4 +65,3 @@ The application should include the following screens:
    - The editor should include a **"code" button** to switch to Markdown mode.
    - As the user types, text should be **saved asynchronously**.
    - A **file-saving indicator** should be present when data is being written to disk.
-
