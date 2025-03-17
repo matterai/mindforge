@@ -27,6 +27,8 @@
   },
   "dependencies": {
     "@types/electron-squirrel-startup": "^1.0.2",
+    "builder-util-runtime": "^9.2.1",
+    "debug": "^4.3.4",
     "dotenv": "^16.4.7",
     "electron-is-dev": "^2.0.0",
     "electron-squirrel-startup": "^1.0.1",
@@ -63,7 +65,9 @@
     "extends": null,
     "files": [
       "dist/**/*",
-      "node_modules/**/*"
+      "node_modules/**/*",
+      "index.html",
+      "package.json"
     ],
     "directories": {
       "buildResources": "assets",
@@ -113,4 +117,3 @@
     }
   }
 }
-

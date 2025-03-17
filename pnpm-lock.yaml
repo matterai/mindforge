@@ -11,6 +11,12 @@ importers:
       '@types/electron-squirrel-startup':
         specifier: ^1.0.2
         version: 1.0.2
+      builder-util-runtime:
+        specifier: ^9.2.1
+        version: 9.2.10
+      debug:
+        specifier: ^4.3.4
+        version: 4.4.0
       dotenv:
         specifier: ^16.4.7
         version: 16.4.7
@@ -89,7 +95,7 @@ importers:
         version: 5.4.14(@types/node@20.17.24)
       wait-on:
         specifier: ^7.2.0
-        version: 7.2.0
+        version: 7.2.0(debug@4.4.0)
 
 packages:
 
@@ -3048,9 +3054,9 @@ snapshots:
       postcss: 8.5.3
       postcss-value-parser: 4.2.0
 
-  axios@1.8.2:
+  axios@1.8.2(debug@4.4.0):
     dependencies:
-      follow-redirects: 1.15.9
+      follow-redirects: 1.15.9(debug@4.4.0)
       form-data: 4.0.2
       proxy-from-env: 1.1.0
     transitivePeerDependencies:
@@ -3646,7 +3652,9 @@ snapshots:
 
   flatted@3.3.3: {}
 
-  follow-redirects@1.15.9: {}
+  follow-redirects@1.15.9(debug@4.4.0):
+    optionalDependencies:
+      debug: 4.4.0
 
   foreground-child@3.3.1:
     dependencies:
@@ -4599,9 +4607,9 @@ snapshots:
       '@types/node': 20.17.24
       fsevents: 2.3.3
 
-  wait-on@7.2.0:
+  wait-on@7.2.0(debug@4.4.0):
     dependencies:
-      axios: 1.8.2
+      axios: 1.8.2(debug@4.4.0)
       joi: 17.13.3
       lodash: 4.17.21
       minimist: 1.2.8

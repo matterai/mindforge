@@ -3,9 +3,10 @@ import path from "path";
 import url from "url";
 import { fileURLToPath } from "url";
 import isDev from "electron-is-dev";
-import electronUpdater from "electron-updater";
 import dotenv from "dotenv";
-const { autoUpdater } = electronUpdater;
+// Temporarily disable electron-updater to fix dependency issues
+// import electronUpdater from "electron-updater";
+// const { autoUpdater } = electronUpdater;
 
 // Load environment variables
 dotenv.config();
@@ -49,7 +50,7 @@ const createWindow = () => {
   const appURL = isDev
     ? `http://localhost:${APP_PORT}` // Vite dev server URL with environment variable
     : url.format({
-        pathname: path.join(__dirname, "../../index.html"),
+        pathname: path.join(app.getAppPath(), "dist/renderer/index.html"),
         protocol: "file:",
         slashes: true,
       });
@@ -86,10 +87,10 @@ app.whenReady().then(() => {
     }
   });
 
-  // Check for updates
-  if (!isDev) {
-    autoUpdater.checkForUpdatesAndNotify();
-  }
+  // Check for updates - temporarily disabled
+  // if (!isDev) {
+  //   autoUpdater.checkForUpdatesAndNotify();
+  // }
 });
 
 // Quit when all windows are closed, except on macOS
