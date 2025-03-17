@@ -67,7 +67,6 @@
     "files": [
       "dist/**/*",
       "node_modules/**/*",
-      "index.html",
       "package.json"
     ],
     "directories": {
@@ -104,7 +103,6 @@
     "linux": {
       "target": [
         "deb",
-        "rpm",
         "AppImage"
       ],
       "category": "Development",

@@ -50,7 +50,7 @@ const createWindow = () => {
   const appURL = isDev
     ? `http://localhost:${APP_PORT}` // Vite dev server URL with environment variable
     : url.format({
-        pathname: path.join(app.getAppPath(), "dist/renderer/index.html"),
+        pathname: path.resolve(__dirname, "../renderer/index.html"),
         protocol: "file:",
         slashes: true,
       });
