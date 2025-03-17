@@ -24,7 +24,8 @@
     "package": "npm run electron:build && electron-builder build --publish never",
     "package:win": "npm run electron:build && electron-builder build --win --publish never",
     "package:mac": "npm run electron:build && electron-builder build --mac --publish never",
-    "package:linux": "npm run electron:build && electron-builder build --linux --publish never"
+    "package:linux": "npm run electron:build && electron-builder build --linux --publish never",
+    "prepare": "husky"
   },
   "dependencies": {
     "@types/electron-squirrel-startup": "^1.0.2",
@@ -52,12 +53,22 @@
     "eslint": "^8.56.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.0",
     "postcss": "^8.4.35",
     "prettier": "^3.5.3",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.2.2",
     "vite": "^5.1.0",
     "wait-on": "^7.2.0"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx,js,jsx,json,css,md}": [
+      "prettier --write"
+    ],
+    "*.{js,ts,json,md}": [
+      "prettier --write"
+    ]
   },
   "build": {
     "appId": "com.matterai.mindforge",
