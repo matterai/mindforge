@@ -12,6 +12,18 @@ import {
   UNDO_COMMAND,
 } from "lexical";
 import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  Undo,
+  Redo,
+  Bold,
+  Italic,
+  Underline,
+  Strikethrough,
+  AlignLeft,
+  AlignCenter,
+  AlignRight,
+  AlignJustify,
+} from "lucide-react";
 
 const LowPriority = 1;
 
@@ -32,7 +44,6 @@ export default function ToolbarPlugin() {
   const $updateToolbar = useCallback(() => {
     const selection = $getSelection();
     if ($isRangeSelection(selection)) {
-      // Update text format
       setIsBold(selection.hasFormat("bold"));
       setIsItalic(selection.hasFormat("italic"));
       setIsUnderline(selection.hasFormat("underline"));
@@ -84,7 +95,7 @@ export default function ToolbarPlugin() {
         className="toolbar-item spaced"
         aria-label="Undo"
       >
-        <i className="format undo" />
+        <Undo className="w-5 h-5" />
       </button>
       <button
         disabled={!canRedo}
@@ -94,7 +105,7 @@ export default function ToolbarPlugin() {
         className="toolbar-item"
         aria-label="Redo"
       >
-        <i className="format redo" />
+        <Redo className="w-5 h-5" />
       </button>
       <Divider />
       <button
@@ -104,7 +115,7 @@ export default function ToolbarPlugin() {
         className={"toolbar-item spaced " + (isBold ? "active" : "")}
         aria-label="Format Bold"
       >
-        <i className="format bold" />
+        <Bold className="w-5 h-5" />
       </button>
       <button
         onClick={() => {
@@ -113,7 +124,7 @@ export default function ToolbarPlugin() {
         className={"toolbar-item spaced " + (isItalic ? "active" : "")}
         aria-label="Format Italics"
       >
-        <i className="format italic" />
+        <Italic className="w-5 h-5" />
       </button>
       <button
         onClick={() => {
@@ -122,7 +133,7 @@ export default function ToolbarPlugin() {
         className={"toolbar-item spaced " + (isUnderline ? "active" : "")}
         aria-label="Format Underline"
       >
-        <i className="format underline" />
+        <Underline className="w-5 h-5" />
       </button>
       <button
         onClick={() => {
@@ -131,7 +142,7 @@ export default function ToolbarPlugin() {
         className={"toolbar-item spaced " + (isStrikethrough ? "active" : "")}
         aria-label="Format Strikethrough"
       >
-        <i className="format strikethrough" />
+        <Strikethrough className="w-5 h-5" />
       </button>
       <Divider />
       <button
@@ -141,7 +152,7 @@ export default function ToolbarPlugin() {
         className="toolbar-item spaced"
         aria-label="Left Align"
       >
-        <i className="format left-align" />
+        <AlignLeft className="w-5 h-5" />
       </button>
       <button
         onClick={() => {
@@ -150,7 +161,7 @@ export default function ToolbarPlugin() {
         className="toolbar-item spaced"
         aria-label="Center Align"
       >
-        <i className="format center-align" />
+        <AlignCenter className="w-5 h-5" />
       </button>
       <button
         onClick={() => {
@@ -159,7 +170,7 @@ export default function ToolbarPlugin() {
         className="toolbar-item spaced"
         aria-label="Right Align"
       >
-        <i className="format right-align" />
+        <AlignRight className="w-5 h-5" />
       </button>
       <button
         onClick={() => {
@@ -168,7 +179,7 @@ export default function ToolbarPlugin() {
         className="toolbar-item"
         aria-label="Justify Align"
       >
-        <i className="format justify-align" />
+        <AlignJustify className="w-5 h-5" />
       </button>{" "}
     </div>
   );
