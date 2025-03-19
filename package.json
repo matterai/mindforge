@@ -28,6 +28,8 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@lexical/react": "^0.28.0",
+    "@lexical/utils": "^0.28.0",
     "@types/electron-squirrel-startup": "^1.0.2",
     "builder-util-runtime": "^9.2.1",
     "debug": "^4.3.4",
@@ -35,6 +37,7 @@
     "electron-is-dev": "^2.0.0",
     "electron-squirrel-startup": "^1.0.1",
     "electron-updater": "^6.1.7",
+    "lexical": "^0.28.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
