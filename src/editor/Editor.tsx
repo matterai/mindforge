@@ -54,10 +54,7 @@ const Editor: React.FC = () => {
     <div className="editor-container w-[600px]">
       <LexicalComposer initialConfig={initialConfig}>
         <ToolbarPlugin />
-        <div
-          ref={editorRef}
-          className="editor-inner overflow-y-auto rounded-b-lg"
-        >
+        <div ref={editorRef} className="editor-inner">
           <RichTextPlugin
             contentEditable={<ContentEditable className="editor-input" />}
             placeholder={

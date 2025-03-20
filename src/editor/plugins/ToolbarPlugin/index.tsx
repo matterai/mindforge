@@ -24,6 +24,7 @@ import {
   AlignRight,
   AlignJustify,
 } from "lucide-react";
+import "./index.css";
 
 const LowPriority = 1;
 
