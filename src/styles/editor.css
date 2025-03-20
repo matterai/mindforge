@@ -1,17 +1,3 @@
-body {
-  margin: 0;
-  background: #eee;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    ".SFNSText-Regular",
-    sans-serif;
-  font-weight: 500;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 .other h2 {
   font-size: 18px;
   color: #444;
@@ -30,10 +16,10 @@ body {
   list-style-type: none;
 }
 
-.App {
+/* .App {
   font-family: sans-serif;
   text-align: center;
-}
+} */
 
 h1 {
   font-size: 24px;
@@ -74,7 +60,7 @@ h1 {
   position: relative;
   tab-size: 1;
   outline: 0;
-  padding: 15px 10px;
+  padding: 15px 40px;
   caret-color: #444;
 }
 
@@ -150,7 +136,7 @@ h1 {
   margin-top: 8px;
   margin-bottom: 8px;
   tab-size: 2;
-  /* white-space: pre; */
+  white-space: pre;
   overflow-x: auto;
   position: relative;
 }

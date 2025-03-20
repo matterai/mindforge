@@ -5,7 +5,8 @@ import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
 import { LexicalErrorBoundary } from "@lexical/react/LexicalErrorBoundary";
-import ToolbarPlugin from "./plugins/ToolbarPlugin";
+// import ToolbarPlugin from "./plugins/ToolbarPlugin";
+import DruggableBlockPlugin from "./plugins/DruggableBlockPlugin";
 
 const theme = {
   // Theme styling goes here
@@ -37,25 +38,37 @@ const Editor: React.FC = () => {
     onError,
   };
 
+  const editorRef = React.useRef<HTMLDivElement>(null);
+  const [editorElement, setEditorElement] = React.useState<
+    HTMLElement | undefined
+  >(undefined);
+
+  // Update editorElement ref after component mounts
+  React.useEffect(() => {
+    if (editorRef.current) {
+      setEditorElement(editorRef.current);
+    }
+  }, []);
+
   return (
-    <div className="editor-container">
+    <div className="editor-container w-[600px]">
       <LexicalComposer initialConfig={initialConfig}>
-        <ToolbarPlugin />
-        <div className="editor-inner max-h-[300px] overflow-y-auto rounded-b-lg">
+        {/* <ToolbarPlugin /> */}
+        <div
+          ref={editorRef}
+          className="editor-inner overflow-y-auto rounded-b-lg"
+        >
           <RichTextPlugin
-            contentEditable={
-              <ContentEditable className="editor-input p-4 focus:outline-none" />
-            }
+            contentEditable={<ContentEditable className="editor-input" />}
             placeholder={
-              <div className="editor-placeholder text-gray-400 absolute top-[24px] left-[24px] pointer-events-none">
-                Enter some text...
-              </div>
+              <div className="editor-placeholder">Enter some text...</div>
             }
             ErrorBoundary={LexicalErrorBoundary}
           />
           <HistoryPlugin />
           <OnChangePlugin onChange={onChange} />
         </div>
+        <DruggableBlockPlugin anchorElem={editorElement} />
       </LexicalComposer>
     </div>
   );

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Editor from "./Editor";
+import Editor from "./editor/Editor";
 
-// Define the window interface to include Electron API
 declare global {
   interface Window {
     electron?: {
@@ -13,7 +12,7 @@ declare global {
 }
 
 const App: React.FC = () => {
-  const [version, setVersion] = useState<string>("");
+  const [, setVersion] = useState<string>("");
   const isElectron = window.electron !== undefined;
 
   useEffect(() => {
@@ -34,19 +33,7 @@ const App: React.FC = () => {
   }, [isElectron]);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
-      <div className="text-center mb-6">
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">Hello World</h1>
-        <p className="text-lg text-gray-600 mb-2">Welcome to MindForge</p>
-        {isElectron && version && (
-          <p className="text-sm text-gray-500">
-            Running on Electron v{version}
-          </p>
-        )}
-        {!isElectron && (
-          <p className="text-sm text-gray-500">Running in browser mode</p>
-        )}
-      </div>
+    <div className="flex items-center justify-center">
       <Editor />
     </div>
   );
