@@ -5,7 +5,7 @@ import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
 import { LexicalErrorBoundary } from "@lexical/react/LexicalErrorBoundary";
-// import ToolbarPlugin from "./plugins/ToolbarPlugin";
+import ToolbarPlugin from "./plugins/ToolbarPlugin";
 import DruggableBlockPlugin from "./plugins/DruggableBlockPlugin";
 
 const theme = {
@@ -53,7 +53,7 @@ const Editor: React.FC = () => {
   return (
     <div className="editor-container w-[600px]">
       <LexicalComposer initialConfig={initialConfig}>
-        {/* <ToolbarPlugin /> */}
+        <ToolbarPlugin />
         <div
           ref={editorRef}
           className="editor-inner overflow-y-auto rounded-b-lg"

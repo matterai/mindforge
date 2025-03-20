@@ -60,7 +60,8 @@ h1 {
   position: relative;
   tab-size: 1;
   outline: 0;
-  padding: 15px 40px;
+  padding: 15px 10px;
+  padding-left: 45px;
   caret-color: #444;
 }
 
@@ -70,7 +71,7 @@ h1 {
   position: absolute;
   text-overflow: ellipsis;
   top: 15px;
-  left: 10px;
+  left: 45px;
   font-size: 15px;
   user-select: none;
   display: inline-block;

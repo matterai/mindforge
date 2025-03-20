@@ -4,7 +4,7 @@
   cursor: grab;
   opacity: 0;
   position: absolute;
-  left: 0px;
+  left: 0;
   top: 0;
   will-change: transform;
   display: flex;
@@ -24,7 +24,7 @@
   background: deepskyblue;
   height: 4px;
   position: absolute;
-  left: 4px; /* Changed from 0 to align with editor left side padding */
+  right: 45px;
   top: 0;
   opacity: 0;
   will-change: transform;
