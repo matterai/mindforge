@@ -6,7 +6,8 @@ import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
 import { LexicalErrorBoundary } from "@lexical/react/LexicalErrorBoundary";
 import ToolbarPlugin from "./plugins/ToolbarPlugin";
-import DruggableBlockPlugin from "./plugins/DruggableBlockPlugin";
+// import DruggableBlockPlugin from "./plugins/DruggableBlockPlugin";
+import "./index.css";
 
 const theme = {
   // Theme styling goes here
@@ -31,7 +32,7 @@ function onError(error: Error) {
   console.error(error);
 }
 
-const Editor: React.FC = () => {
+export const Editor = () => {
   const initialConfig = {
     namespace: "MyEditor",
     theme,
@@ -39,16 +40,16 @@ const Editor: React.FC = () => {
   };
 
   const editorRef = React.useRef<HTMLDivElement>(null);
-  const [editorElement, setEditorElement] = React.useState<
-    HTMLElement | undefined
-  >(undefined);
+  // const [editorElement, setEditorElement] = React.useState<
+  //   HTMLElement | undefined
+  // >(undefined);
 
   // Update editorElement ref after component mounts
-  React.useEffect(() => {
-    if (editorRef.current) {
-      setEditorElement(editorRef.current);
-    }
-  }, []);
+  // React.useEffect(() => {
+  //   if (editorRef.current) {
+  //     setEditorElement(editorRef.current);
+  //   }
+  // }, []);
 
   return (
     <div className="editor-container w-[600px]">
@@ -65,10 +66,10 @@ const Editor: React.FC = () => {
           <HistoryPlugin />
           <OnChangePlugin onChange={onChange} />
         </div>
-        <DruggableBlockPlugin anchorElem={editorElement} />
+        {/* <DruggableBlockPlugin anchorElem={editorElement} /> */}
       </LexicalComposer>
     </div>
   );
 };
 
-export default Editor;
+// export default Editor;

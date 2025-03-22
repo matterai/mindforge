@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Editor from "./editor/Editor";
+import { Editor } from "./editor";
 
 declare global {
   interface Window {
