@@ -28,10 +28,6 @@ import "./index.css";
 
 const LowPriority = 1;
 
-function Divider() {
-  return <div className="divider" />;
-}
-
 export default function ToolbarPlugin() {
   const [editor] = useLexicalComposerContext();
   const toolbarRef = useRef(null);
@@ -108,7 +104,7 @@ export default function ToolbarPlugin() {
       >
         <Redo className="w-5 h-5" />
       </button>
-      <Divider />
+      <div className="divider" />
       <button
         onClick={() => {
           editor.dispatchCommand(FORMAT_TEXT_COMMAND, "bold");
@@ -145,7 +141,7 @@ export default function ToolbarPlugin() {
       >
         <Strikethrough className="w-5 h-5" />
       </button>
-      <Divider />
+      <div className="divider" />
       <button
         onClick={() => {
           editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, "left");
