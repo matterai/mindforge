@@ -7,6 +7,8 @@ import {
   CAN_UNDO_COMMAND,
   FORMAT_ELEMENT_COMMAND,
   FORMAT_TEXT_COMMAND,
+  INDENT_CONTENT_COMMAND,
+  OUTDENT_CONTENT_COMMAND,
   REDO_COMMAND,
   SELECTION_CHANGE_COMMAND,
   UNDO_COMMAND,
@@ -23,6 +25,8 @@ import {
   AlignCenter,
   AlignRight,
   AlignJustify,
+  Outdent,
+  Indent,
 } from "lucide-react";
 import "./index.css";
 import DropDown, { DropDownItem } from "@/editor/ui/Dropdown";
@@ -153,7 +157,7 @@ export default function ToolbarPlugin() {
           onClick={() => editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, "left")}
           className="item wide"
         >
-          <div className="flex gap-2">
+          <div className="icon-text-container">
             <AlignLeft className="w-5 h-5" />
             <span className="text">Left Align</span>
           </div>
@@ -165,7 +169,7 @@ export default function ToolbarPlugin() {
           }
           className="item wide"
         >
-          <div className="flex gap-2">
+          <div className="icon-text-container">
             <AlignCenter className="w-5 h-5" />
             <span className="text">Center Align</span>
           </div>
@@ -177,7 +181,7 @@ export default function ToolbarPlugin() {
           }
           className="item wide"
         >
-          <div className="flex gap-2">
+          <div className="icon-text-container">
             <AlignRight className="w-5 h-5" />
             <span className="text">Right Align</span>
           </div>
@@ -194,6 +198,31 @@ export default function ToolbarPlugin() {
             <span className="text">Justify Align</span>
           </div>
           <span className="shortcut">{SHORTCUTS.JUSTIFY_ALIGN}</span>
+        </DropDownItem>
+        <div className="divider" />
+        <DropDownItem
+          onClick={() => {
+            editor.dispatchCommand(OUTDENT_CONTENT_COMMAND, undefined);
+          }}
+          className="item wide"
+        >
+          <div className="icon-text-container">
+            <Outdent className="w-5 h-5" />
+            <span className="text">Outdent</span>
+          </div>
+          <span className="shortcut">{SHORTCUTS.OUTDENT}</span>
+        </DropDownItem>
+        <DropDownItem
+          onClick={() => {
+            editor.dispatchCommand(INDENT_CONTENT_COMMAND, undefined);
+          }}
+          className="item wide"
+        >
+          <div className="icon-text-container">
+            <Indent className="w-5 h-5" />
+            <span className="text">Indent</span>
+          </div>
+          <span className="shortcut">{SHORTCUTS.INDENT}</span>
         </DropDownItem>
       </DropDown>
     </div>

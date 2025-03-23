@@ -92,3 +92,8 @@
   margin: 4px 8px;
   height: 1px;
 }
+
+.dropdown .icon-text-container {
+  display: flex;
+  gap: 8px;
+}
