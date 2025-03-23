@@ -29,6 +29,8 @@
   },
   "dependencies": {
     "@lexical/react": "^0.28.0",
+    "@lexical/rich-text": "^0.28.0",
+    "@lexical/table": "^0.28.0",
     "@lexical/utils": "^0.28.0",
     "@types/electron-squirrel-startup": "^1.0.2",
     "builder-util-runtime": "^9.2.1",

@@ -27,10 +27,12 @@ import {
   AlignJustify,
   Outdent,
   Indent,
+  RemoveFormatting,
 } from "lucide-react";
 import "./index.css";
 import DropDown, { DropDownItem } from "@/editor/ui/Dropdown";
 import { SHORTCUTS } from "../ShortcutsPlugin/shortcuts";
+import { clearFormatting } from "./utils";
 
 const LowPriority = 1;
 
@@ -199,32 +201,33 @@ export default function ToolbarPlugin() {
           </div>
           <span className="shortcut">{SHORTCUTS.JUSTIFY_ALIGN}</span>
         </DropDownItem>
-        <div className="divider" />
-        <DropDownItem
-          onClick={() => {
-            editor.dispatchCommand(OUTDENT_CONTENT_COMMAND, undefined);
-          }}
-          className="item wide"
-        >
-          <div className="icon-text-container">
-            <Outdent className="w-5 h-5" />
-            <span className="text">Outdent</span>
-          </div>
-          <span className="shortcut">{SHORTCUTS.OUTDENT}</span>
-        </DropDownItem>
-        <DropDownItem
-          onClick={() => {
-            editor.dispatchCommand(INDENT_CONTENT_COMMAND, undefined);
-          }}
-          className="item wide"
-        >
-          <div className="icon-text-container">
-            <Indent className="w-5 h-5" />
-            <span className="text">Indent</span>
-          </div>
-          <span className="shortcut">{SHORTCUTS.INDENT}</span>
-        </DropDownItem>
       </DropDown>
+      <div className="divider" />
+      <button
+        onClick={() =>
+          editor.dispatchCommand(OUTDENT_CONTENT_COMMAND, undefined)
+        }
+        className="toolbar-item spaced"
+        aria-label="Outdent"
+      >
+        <Outdent className="w-5 h-5" />
+      </button>
+      <button
+        onClick={() =>
+          editor.dispatchCommand(INDENT_CONTENT_COMMAND, undefined)
+        }
+        className="toolbar-item spaced"
+        aria-label="Indent"
+      >
+        <Indent className="w-5 h-5" />
+      </button>
+      <button
+        onClick={() => clearFormatting(editor)}
+        className="toolbar-item spaced"
+        aria-label="Clear all text formatting"
+      >
+        <RemoveFormatting className="w-5 h-5" />
+      </button>
     </div>
   );
 }
