@@ -25,6 +25,8 @@ import {
   AlignJustify,
 } from "lucide-react";
 import "./index.css";
+import DropDown, { DropDownItem } from "@/editor/ui/Dropdown";
+import { SHORTCUTS } from "../ShortcutsPlugin/shortcuts";
 
 const LowPriority = 1;
 
@@ -142,42 +144,58 @@ export default function ToolbarPlugin() {
         <Strikethrough className="w-5 h-5" />
       </button>
       <div className="divider" />
-      <button
-        onClick={() => {
-          editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, "left");
-        }}
-        className="toolbar-item spaced"
-        aria-label="Left Align"
+      <DropDown
+        buttonClassName="toolbar-item gap-2"
+        buttonLucideIconName="align-left"
+        buttonAriaLabel="Formatting options for text alignment"
       >
-        <AlignLeft className="w-5 h-5" />
-      </button>
-      <button
-        onClick={() => {
-          editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, "center");
-        }}
-        className="toolbar-item spaced"
-        aria-label="Center Align"
-      >
-        <AlignCenter className="w-5 h-5" />
-      </button>
-      <button
-        onClick={() => {
-          editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, "right");
-        }}
-        className="toolbar-item spaced"
-        aria-label="Right Align"
-      >
-        <AlignRight className="w-5 h-5" />
-      </button>
-      <button
-        onClick={() => {
-          editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, "justify");
-        }}
-        className="toolbar-item"
-        aria-label="Justify Align"
-      >
-        <AlignJustify className="w-5 h-5" />
-      </button>{" "}
+        <DropDownItem
+          onClick={() => editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, "left")}
+          className="item wide"
+        >
+          <div className="flex gap-2">
+            <AlignLeft className="w-5 h-5" />
+            <span className="text">Left Align</span>
+          </div>
+          <span className="shortcut">{SHORTCUTS.LEFT_ALIGN}</span>
+        </DropDownItem>
+        <DropDownItem
+          onClick={() =>
+            editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, "center")
+          }
+          className="item wide"
+        >
+          <div className="flex gap-2">
+            <AlignCenter className="w-5 h-5" />
+            <span className="text">Center Align</span>
+          </div>
+          <span className="shortcut">{SHORTCUTS.CENTER_ALIGN}</span>
+        </DropDownItem>
+        <DropDownItem
+          onClick={() =>
+            editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, "right")
+          }
+          className="item wide"
+        >
+          <div className="flex gap-2">
+            <AlignRight className="w-5 h-5" />
+            <span className="text">Right Align</span>
+          </div>
+          <span className="shortcut">{SHORTCUTS.RIGHT_ALIGN}</span>
+        </DropDownItem>
+        <DropDownItem
+          onClick={() =>
+            editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, "justify")
+          }
+          className="item wide"
+        >
+          <div className="flex gap-2">
+            <AlignJustify className="w-5 h-5" />
+            <span className="text">Justify Align</span>
+          </div>
+          <span className="shortcut">{SHORTCUTS.JUSTIFY_ALIGN}</span>
+        </DropDownItem>
+      </DropDown>
     </div>
   );
 }
